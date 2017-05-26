@@ -1,0 +1,24 @@
+div.row
+  div.col.s12
+    ul.tabs
+      li.tab.col.s6
+        a href='#form' Importação de vendas
+
+  = form_tag(sales_path, html: {id: 'sales-form'}, multipart: true) do |f|
+    div.col.s12 id='form'
+      br
+      div class="file-field input-field"
+        div class="btn"
+          span Arquivo
+          = file_field_tag :attachment
+        div class="file-path-wrapper"
+          input class="file-path validate" type="text"
+
+    div.fixed-action-btn
+      = button_tag(type: 'submit', class: 'btn-large btn-floating blue darken-1 tooltipped', data: {position: 'left', tooltip: 'Importar'}) do
+        i.large.material-icons save
+
+css:
+  table td input, table td select {
+    border-bottom: none !important;
+  }

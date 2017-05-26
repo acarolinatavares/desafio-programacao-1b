@@ -1,0 +1,22 @@
+ul.side-nav.fixed
+  li
+    div.userView
+      div.background.teal.lighten-2
+      div.center
+        = image_tag('online-store.png', class: 'square')
+
+        span.white-text.name
+          b Painel Administrativo de Vendas
+
+  li
+    = link_to(sales_path) do
+      i.material-icons store
+      | Vendas
+
+  li
+    = link_to(new_sale_path) do
+      i.material-icons shopping_cart
+      | Importar Vendas
+
+a.button-collapse href='#' data-activates="slide-out"
+  i.material-icons menu

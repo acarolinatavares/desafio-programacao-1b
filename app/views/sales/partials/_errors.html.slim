@@ -1,0 +1,21 @@
+div.row
+  - if @sale.errors.any?
+    ul class="collapsible" data-collapsible="accordion"
+      li
+        div class="collapsible-header"
+          span class="new badge red" #{@sale.errors.size}
+          i class="material-icons" announcement
+          |Erros
+        div class="collapsible-body"
+          table.bordered.highlight
+            thead
+              tr
+                th Campo
+                th.center-align Erro(s)
+            tbody
+              - @sale.errors.each do |key, value|
+                tr
+                  td
+                    = I18n.t("fields.#{key}")
+                  td.center-align
+                    = array_to_string(value, ',')

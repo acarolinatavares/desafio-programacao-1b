@@ -1,0 +1,21 @@
+div.row
+  - if @not_imported
+    ul class="collapsible" data-collapsible="accordion"
+      li
+        div class="collapsible-header"
+          span class="badge" #{@not_imported.size}
+          i class="material-icons" announcement
+          |Vendas não importadas
+        div class="collapsible-body"
+          table.bordered.highlight
+            thead
+              tr
+                th Linha do arquivo
+                th.center-align Erro(s)
+            tbody
+              - @not_imported.each do |sale|
+                tr
+                  td
+                    = sale['row']
+                  td.center-align
+                    = format_sales_errors(sale['errors'])

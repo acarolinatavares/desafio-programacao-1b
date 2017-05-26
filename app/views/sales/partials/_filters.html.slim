@@ -1,0 +1,29 @@
+fieldset
+  legend Filtros
+  = search_form_for([:admin, @query]) do |f|
+    div.row
+      div.col.l9.m9.s12
+        div.row
+          div.col.s12.input-field
+            = f.input_field :name_cont
+            label Contém no nome
+
+          div.col.s12.input-field
+            = f.select(:programs_name_eq, Seller::PROGRAMS, include_blank: 'Nenhum')
+            label Contém o programa
+
+      div.col.l3.m3.s12 style='padding-top: 50px;'
+        div.row
+          div.col.s12.center-align
+            button.btn-flat type='submit'
+              i.left.material-icons search
+              'Buscar
+
+        div.row
+          div.col.s12.center-align
+            a.btn-flat href=admin_sellers_path
+              i.left.material-icons clear
+              'Limpar
+
+javascript:
+  $('select').material_select();
